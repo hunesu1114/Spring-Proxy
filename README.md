@@ -15,6 +15,12 @@
 
 - 프록시 객체는 캐시 개념. Client 객체가 어떤 작업을 수행하는 메서드를 불러올 때, Proxy객체에서 한번 체크하고 데이터가 있으면 빠르게 반환, 없으면 최초 1회 원래 클래스의 메서드 호출한 뒤 Proxy객체의 필드에 저장. 두번째 부터는 원래 클래스의 메서드를 부를 필요 없이 빠르게 데이터 반환.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ff6b62ed-cd2f-4970-aee8-76bc09081a97/Untitled.png)
+![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/b09cf039-9793-4ea1-94c7-b25c34a80de5)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9eb157f6-f672-4aeb-aa03-6f216da88545/Untitled.png)
+![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/89e1e585-0910-4ff3-88fd-c485a6c4fd39)
+
+- 데코레이터 패턴의 의도는 기능 추가. 프록시 패턴과 흡사한 구조이다.
+
+![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/0fe0ee30-6621-434e-a350-c433d44619b2)
+
+![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/51661a2e-7bcd-425c-b9f3-769978345ed2)
