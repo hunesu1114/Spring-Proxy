@@ -24,3 +24,7 @@
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/0fe0ee30-6621-434e-a350-c433d44619b2)
 
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/51661a2e-7bcd-425c-b9f3-769978345ed2)
+
+
+## [0608]
+**프록시 팩토리, 포인트컷, 어드바이스, 어드바이저** 학습
