@@ -35,13 +35,16 @@
 - 그러면 인터페이스 있고 없고에 따라 다른 프록시 적용하는것, 그리고 일일이 프록시 만드는것 너무 고달픔
 - 이때 프록시 팩토리를 사용하면됨. 프록시 팩토리는 위 두 방법을 추상화 한 인터페이스임. 프록시팩토리에서 적용할 클래스가 JDK프록시 적용인지, CGLIB적용인지 판단을 하고 호출을 위임함
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/af5752e1-a4ec-4bef-b89b-ba8a02622a71)
+
 -위 사진의 Advice 는 사실 다음에 배울 Advisor의 편의 버전임. 어떤 편의냐면 포인트컷이 항상 Pointcut.True로 설정되어있음
 - 조금 더 심화 -> advice는 우리가 추가할 부가기능 로직이 들어있는 클래스고, pointcut은 그 부가기능 로직을 어떤 클래스 어떤 메서드에 적용하고 적용하지 않을지 설정하는 클래스임.
 - 그리고 advice와 pointcut을 각각 한개씩 포함하는 개념이 Advisor임.
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/f995983c-bbc8-4d2a-9dc8-b0098635af3b)
 - 다시 말하자면 프록시팩토리가 어드바이저를 부르고 포인트컷에서 어드바이스를 적용할지말지 판단 후 적용 또는 적용x.
+
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/07dc3e2e-e50e-4a3a-9619-a8419565d4ba)
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/079a9352-e377-4f6e-bb4c-c6010a662d84)
+
 -또한 프록시를 여러개 적용할 수도 있음(즉, 여러 advisor를 적용할 수 있다는 말임)
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/38af3c9b-29c6-4a9b-8dc4-6955881c6c25)
 
