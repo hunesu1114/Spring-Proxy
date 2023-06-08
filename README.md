@@ -45,7 +45,7 @@
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/07dc3e2e-e50e-4a3a-9619-a8419565d4ba)
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/079a9352-e377-4f6e-bb4c-c6010a662d84)
 
--또한 프록시를 여러개 적용할 수도 있음(즉, 여러 advisor를 적용할 수 있다는 말임)
+- 또한 프록시를 여러개 적용할 수도 있음(즉, 여러 advisor를 적용할 수 있다는 말임)
 ![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/38af3c9b-29c6-4a9b-8dc4-6955881c6c25)
 
 ## 여기까지 배웠을 때, 남아있는 문제사항들
@@ -60,3 +60,42 @@ ProxyFactoryConfigV1 , ProxyFactoryConfigV2 보면...Config파일 작성이 보�
 지금까지 학습한 프록시를 적용하려면, 실제 객체를 스프링 컨테이너에 빈으로 등록하는 것이 아니라ProxyFactoryConfigV1 에서 한 것 처럼, 부가 기능이 있는 프록시를 실제 객체 대신 스프링 컨테이너에 빈으로 등록해야 함.
 
 ## 두 가지 문제를 한번에 해결하는 방법이 바로 다음에 설명할 빈 후처리기이다.
+
+## [0609]
+**빈 후처리기** 학습
+- 수많은 설정코드와 Component스캔 대상에 프록시를 적용 할 수 없었던 문제상황에 대한 해결책으로 빈 후처리기를 배움.
+- 빈 후처리기는 빈들이 초기화 되기 전이나 후에 빈이 빈 팩토리에 저장되기 직전에 빈을 조작해주는 인터페이스임.
+
+![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/b6950cb4-7444-4b2b-8f3e-c2377a789c33)
+
+- 빈 후처리기로 빈을 심지어 바꿔치기 할 수도 있음.
+
+- 그럼 빈을 조작할 이유는 현재로서는 한가지, 빈 객체를 저장할 때, 원본객체 말고 조작을 해서 프록시를 저장해버리는거임.
+
+![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/0e996122-3073-463a-97b5-1461426a3472)
+
+-여기까지 BeanPostProcessor를 implements 하여 빈 후처리기를 직접 만들어봤는데, 스프링부트는 자동으로 처리할 수 있는 기능을 제공한다.
+
+![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/b1c2dc38-2593-4934-86c4-60158c9171e1)
+
+![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/869e1941-02b5-475b-a7ed-1bf382620d61)
+
+- 심지어 여러 advisor를 적용하기도 가능함
+
+![image](https://github.com/hunesu1114/Spring-Proxy/assets/114369093/1ad6424d-65c2-43d0-9f5a-80c98052a7d1)
+
+## 주요 사항!!!
+## 빈 후처리기는 포인트컷을 두번 사용한다.
+1. 프록시를 생성할지 말지 결정할 때, 포인트컷으로 모든 클래스와 모든 메서드를 일일이 매칭해서 하나라도 매칭되면 프록시를 만든다
+2. 프록시를 만든 후, 포인트컷으로 매칭해서 해당 메서드가 포인트컷을 만족하면 프록시 반환, 아니면 원본 객체 반환
+
+## 프록시는 반드시 하나만 생성된다. 
+심지어 여러 advisor가 적용되는 상황에서도 프록시는 반드시 하나!
+
+
+
+
+
+
+
+
